@@ -11,16 +11,21 @@
     "dist"
   ],
   "scripts": {
+	"lint": "eslint src tests scripts --ext mjs,ts --fix",
+	"format": "prettier --write {src,tests,scripts}/**/*.ts",
+	"test": "jest",
+	"test:watch": "jest --watch",
+	"update": "yarn up \"*\" -i",
+	"clean": "node scripts/clean-dist.mjs",
+	"build": "tsc -b src && rollup -c scripts/rollup.ts && gen-esm-wrapper dist/index.js dist/index.mjs",
+	"watch": "tsc -b src -w",
+	"sversion": "standard-version",
+	"prepare": "husky install",
     "pretest": "yarn build",
-    "test": "jest --pass-with-no-tests",
     "prebuild": "yarn clean",
-    "build": "tsup && tsc",
-    "clean": "rimraf dist",
-    "lint": "eslint --ext mjs,js,ts",
     "lint:fix": "eslint --ext mjs,js,ts --fix",
-    "format": "prettier --write **/*.{ts,js}",
-    "prepare": "husky install",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+	"prepublishOnly": "rollup-type-bundler -v -e url events"
   },
   "repository": {
     "type": "git",
