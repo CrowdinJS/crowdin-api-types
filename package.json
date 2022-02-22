@@ -9,8 +9,10 @@
     "test": "test"
   },
   "exports": {
-    "import": "./dist/index.mjs",
-	"require": "./dist/index.js"
+	"./v2": {
+		"require": "./dist/v2.js",
+		"import": "./dist/v2.mjs"
+	}
   },
   "files": [
     "dist",
