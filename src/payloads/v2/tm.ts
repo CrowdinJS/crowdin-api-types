@@ -1,5 +1,5 @@
-import type { APIDownload } from "./_download";
-import type { APIExport } from "./_export";
+import type { APIDownload } from "./_internal/download";
+import type { APIExport } from "./_internal/export";
 
 export interface APITranslationMemory {
 	data: {

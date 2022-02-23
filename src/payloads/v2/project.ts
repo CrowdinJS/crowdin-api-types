@@ -1,6 +1,6 @@
 import type { APILanguage } from "./language";
 import type { Size } from "../common";
-import type { APIDownload, APIDownloadURL } from "./_download";
+import type { APIDownload, APIDownloadURL } from "./_internal/download";
 
 export interface APIProject {
 	id: number;
