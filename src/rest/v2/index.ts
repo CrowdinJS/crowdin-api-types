@@ -783,7 +783,7 @@ export const Routes = {
 } as const;
 
 export const RouteBases = {
-	api: `https://api.crowdin.com/api/${APIVersion}`,
+	api: `https://api.crowdin.com/api/v${APIVersion}`,
 	downloads: "https://production-enterprise-importer.downloads.crowdin.com"
 } as const;
 
