@@ -1,4 +1,5 @@
-import type { APIPartialProjectString, APIProjectUser } from "./project";
+import type { APIPartialProjectString } from "./project";
+import type { APIProjectUser } from "./user";
 import type { APIList } from "./_internal/list";
 
 /**

@@ -1,5 +1,5 @@
 import type { CreateUpdateDates } from "../common";
-import type { APIProjectUser } from "./project";
+import type { APIProjectUser } from "./user";
 import type { APIList } from "./_internal/list";
 
 export interface APIProjectTaskProgress {

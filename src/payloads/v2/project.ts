@@ -4,6 +4,7 @@ import type { APIDownload, APIDownloadURL } from "./_internal/download";
 import type { APILanguageProgress } from "./_internal/progress";
 import type { APIExport } from "./_internal/export";
 import type { APIList } from "./_internal/list";
+import type { APIProjectUser } from "./user";
 
 export interface APIProject {
 	id: number;
@@ -146,13 +147,6 @@ export interface APIProjectString {
 }
 
 export type APIProjectStrings = APIList<APIProjectString>;
-
-export interface APIProjectUser {
-	id: number;
-	username: string;
-	fullName: string;
-	avatarUrl: string;
-}
 
 export interface APIProjectApproval {
 	data: {

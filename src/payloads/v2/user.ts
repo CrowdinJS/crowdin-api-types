@@ -14,6 +14,13 @@ export interface APIUser {
 	};
 }
 
+export interface APIProjectUser {
+	id: number;
+	username: string;
+	fullName: string;
+	avatarUrl: string;
+}
+
 export interface APIProjectMember {
 	data: {
 		id: number;
