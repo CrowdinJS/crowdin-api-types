@@ -16,3 +16,5 @@ export * from "./label";
 export * from "./issue";
 export * from "./dictionary";
 export * from "./build";
+export * from "./screenshot";
+export * from "./string";
