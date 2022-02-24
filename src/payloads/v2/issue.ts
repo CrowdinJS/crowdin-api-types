@@ -19,4 +19,7 @@ export interface APIProjectIssue {
 	};
 }
 
+/**
+ * @deprecated Use `APIProjectComments` instead
+ */
 export type APIProjectIssues = APIList<APIProjectIssue>;
