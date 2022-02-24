@@ -1,4 +1,6 @@
-export interface APIMachineTranlation {
+import type { APIList } from "./_internal/list";
+
+export interface APIMachineTranslation {
 	data: {
 		id: number;
 		name: string;
@@ -15,3 +17,5 @@ export interface APIMachineTranlation {
 		};
 	};
 }
+
+export type APIMachineTranslations = APIList<APIMachineTranslation>;

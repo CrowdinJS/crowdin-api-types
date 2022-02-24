@@ -1,5 +1,7 @@
+import type { CreateUpdateDates } from "../common";
 import type { APIDownload } from "./_internal/download";
 import type { APIExport } from "./_internal/export";
+import type { APIList } from "./_internal/list";
 
 export interface APIGlossary {
 	data: {
@@ -14,6 +16,8 @@ export interface APIGlossary {
 		createdAt: string;
 	};
 }
+
+export type APIGlossaries = APIList<APIGlossary>;
 
 export type APIGlossaryDownload = APIDownload;
 
@@ -39,7 +43,7 @@ export interface APIGlossaryImport {
 }
 
 export interface APIGlossaryTerm {
-	data: {
+	data: CreateUpdateDates & {
 		id: number;
 		userId: number;
 		glossaryId: number;
@@ -48,7 +52,7 @@ export interface APIGlossaryTerm {
 		description: string;
 		partOfSpeech: string;
 		lemma: string;
-		createdAt: string;
-		updatedAt: string;
 	};
 }
+
+export type APIGlossaryTerms = APIList<APIGlossaryTerm>;

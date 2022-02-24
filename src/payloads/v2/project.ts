@@ -1,6 +1,9 @@
 import type { APILanguage } from "./language";
-import type { Size } from "../common";
+import type { CreateUpdateDates, Dates, Size } from "../common";
 import type { APIDownload, APIDownloadURL } from "./_internal/download";
+import type { APILanguageProgress } from "./_internal/progress";
+import type { APIExport } from "./_internal/export";
+import type { APIList } from "./_internal/list";
 
 export interface APIProject {
 	id: number;
@@ -74,91 +77,10 @@ export interface APIProject {
 	};
 }
 
-export interface APIProjectBranch {
-	data: {
-		id: number;
-		projectId: number;
-		name: string;
-		title: string;
-		exportPattern: string;
-		priority: string;
-		createdAt: string;
-		updatedAt: string;
-	};
-}
-
-export interface APIProjectDirectory {
-	data: {
-		id: number;
-		projectId: number;
-		branchId: number;
-		directoryId: number;
-		name: string;
-		title: string;
-		exportPattern: string;
-		priority: string;
-		createdAt: string;
-		updatedAt: string;
-	};
-}
-
-export interface APIProjectFile {
-	data: {
-		id: number;
-		projectId: number;
-		branchId: number;
-		directoryId: number;
-		name: string;
-		title: string;
-		type: string;
-		path: string;
-		status: string;
-		// Only for project owners, organization owners and managers
-		revisionId?: number;
-		priority?: string;
-		importOptions?: {
-			firstLineContainsHeader: boolean;
-			importTranslations: boolean;
-			scheme: {
-				identifier: number;
-				sourcePhrase: number;
-				en: number;
-				de: number;
-			};
-		};
-		exportOptions?: {
-			exportPattern: string;
-		};
-		excludedTargetLanguages?: string[];
-		createdAt?: string;
-		updatedAt?: string;
-	};
-}
-
-export type APIProjectFileDownload = APIDownload;
-
-export interface APIProjectFileRevisionInfo {
-	strings: number;
-	words: number;
-}
-
-export interface APIProjectFileRevision {
-	data: {
-		id: number;
-		projectId: number;
-		fileId: number;
-		restoreToRevision: null;
-		info: {
-			added: APIProjectFileRevisionInfo;
-			deleted: APIProjectFileRevisionInfo;
-			updated: APIProjectFileRevisionInfo;
-		};
-		date: string;
-	};
-}
+export type APIProjects = APIList<APIProject>;
 
 export interface APIProjectPreTranslation {
-	data: {
+	data: Dates & {
 		identifier: string;
 		status: string;
 		progress: number;
@@ -171,22 +93,16 @@ export interface APIProjectPreTranslation {
 			translateUntranslatedOnly: boolean;
 			translateWithPerfectMatchOnly: boolean;
 		};
-		createdAt: string;
-		updatedAt: string;
-		startedAt: string;
-		finishedAt: string;
 		eta: string;
 	};
 }
 
 export interface APIProjectTranslationsBuild {
-	data: {
+	data: Omit<Dates, "startedAt"> & {
 		id: number;
 		projectId: number;
 		status: string;
 		progress: number;
-		createdAt: string;
-		updatedAt: string;
 		finishedAt: string;
 		attributes: {
 			branchId: number;
@@ -199,7 +115,9 @@ export interface APIProjectTranslationsBuild {
 	};
 }
 
-export type ProjectTranslationsBuildDownload = APIDownload;
+export type APIProjectTranslationsBuilds = APIList<APIProjectTranslationsBuild>;
+
+export type APIProjectTranslationsBuildDownload = APIDownload;
 
 export interface APIPartialProjectString {
 	id: number;
@@ -212,21 +130,22 @@ export interface APIPartialProjectString {
 }
 
 export interface APIProjectString {
-	data: APIPartialProjectString & {
-		projectId: number;
-		branchId: number;
-		directoryId: number;
-		identifier: string;
-		maxLength: number;
-		isHidden: boolean;
-		isDuplicate: boolean;
-		masterStringId: number;
-		revision: number;
-		labelIds: number[];
-		createdAt: string;
-		updatedAt: string;
-	};
+	data: APIPartialProjectString &
+		CreateUpdateDates & {
+			projectId: number;
+			branchId: number;
+			directoryId: number;
+			identifier: string;
+			maxLength: number;
+			isHidden: boolean;
+			isDuplicate: boolean;
+			masterStringId: number;
+			revision: number;
+			labelIds: number[];
+		};
 }
+
+export type APIProjectStrings = APIList<APIProjectString>;
 
 export interface APIProjectUser {
 	id: number;
@@ -247,6 +166,8 @@ export interface APIProjectApproval {
 	};
 }
 
+export type APIProjectApprovals = APIList<APIProjectApproval>;
+
 export interface APIProjectLanguageTranslation {
 	data: {
 		stringId: number;
@@ -257,6 +178,8 @@ export interface APIProjectLanguageTranslation {
 		createdAt: string;
 	};
 }
+
+export type APIProjectLanguageTranslations = APIList<APIProjectLanguageTranslation>;
 
 export interface APIProjectTranslation {
 	data: {
@@ -269,6 +192,8 @@ export interface APIProjectTranslation {
 	};
 }
 
+export type APIProjectTranslations = APIList<APIProjectTranslation>;
+
 export interface APIProjectVote {
 	data: {
 		id: number;
@@ -278,6 +203,8 @@ export interface APIProjectVote {
 		mark: string;
 	};
 }
+
+export type APIProjectVotes = APIList<APIProjectVote>;
 
 export interface APIProjectComment {
 	data: {
@@ -298,8 +225,10 @@ export interface APIProjectComment {
 	};
 }
 
+export type APIProjectComments = APIList<APIProjectComment>;
+
 export interface APIProjectScreenshot {
-	data: {
+	data: CreateUpdateDates & {
 		id: number;
 		userId: number;
 		url: APIDownloadURL;
@@ -307,10 +236,10 @@ export interface APIProjectScreenshot {
 		size: Size;
 		tagsCount: number;
 		tags: APIProjectScreenshotTag["data"][];
-		createdAt: string;
-		updatedAt: string;
 	};
 }
+
+export type APIProjectScreenshots = APIList<APIProjectScreenshot>;
 
 export interface APIProjectScreenshotTag {
 	data: {
@@ -324,3 +253,31 @@ export interface APIProjectScreenshotTag {
 		createdAt: string;
 	};
 }
+
+export type APIProjectScreenshotTags = APIList<APIProjectScreenshotTag>;
+
+export type APIProjectLanguageProgress = APILanguageProgress<true, true>;
+export type APIProjectLanguagesProgress = APILanguageProgress;
+
+export interface APIProjectReport extends APIExport {
+	attributes: {
+		format: string;
+		reportName: string;
+		schema: {};
+	};
+}
+
+export type APIProjectReportDownload = APIDownload;
+
+export type APIProjectQAIssues = APIList<{
+	data: {
+		stringId: number;
+		languageId: string;
+		category: string;
+		categoryDescription: string;
+		validation: string;
+		validationDescription: string;
+		pluralId: number;
+		text: string;
+	};
+}>;

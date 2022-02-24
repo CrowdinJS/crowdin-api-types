@@ -1,5 +1,6 @@
 import type { APIDownload } from "./_internal/download";
 import type { APIExport } from "./_internal/export";
+import type { APIList } from "./_internal/list";
 
 export interface APITranslationMemory {
 	data: {
@@ -14,6 +15,8 @@ export interface APITranslationMemory {
 		createdAt: string;
 	};
 }
+
+export type APITranslationMemories = APIList<APITranslationMemory>;
 
 export interface APITranslationMemoryExport {
 	data: APIExport & {

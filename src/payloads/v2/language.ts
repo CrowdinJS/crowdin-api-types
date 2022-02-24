@@ -1,3 +1,5 @@
+import type { APIList } from "./_internal/list";
+
 export interface APILanguage {
 	data: {
 		id: string;
@@ -16,3 +18,5 @@ export interface APILanguage {
 		dialectOf: string;
 	};
 }
+
+export type APILanguages = APIList<APILanguage>;
