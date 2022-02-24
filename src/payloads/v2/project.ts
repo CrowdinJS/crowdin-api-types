@@ -1,10 +1,11 @@
 import type { APILanguage } from "./language";
-import type { CreateUpdateDates, Dates, Size } from "../common";
-import type { APIDownload, APIDownloadURL } from "./_internal/download";
+import type { Dates } from "../common";
+import type { APIDownload } from "./_internal/download";
 import type { APILanguageProgress } from "./_internal/progress";
 import type { APIExport } from "./_internal/export";
 import type { APIList } from "./_internal/list";
 import type { APIProjectUser } from "./user";
+import type { APIPartialProjectString } from "./string";
 
 export interface APIProject {
 	id: number;
@@ -98,34 +99,6 @@ export interface APIProjectPreTranslation {
 	};
 }
 
-export interface APIPartialProjectString {
-	id: number;
-	text: string;
-	type: string;
-	hasPlurals: boolean;
-	isIcu: boolean;
-	context: string;
-	fileId: number;
-}
-
-export interface APIProjectString {
-	data: APIPartialProjectString &
-		CreateUpdateDates & {
-			projectId: number;
-			branchId: number;
-			directoryId: number;
-			identifier: string;
-			maxLength: number;
-			isHidden: boolean;
-			isDuplicate: boolean;
-			masterStringId: number;
-			revision: number;
-			labelIds: number[];
-		};
-}
-
-export type APIProjectStrings = APIList<APIProjectString>;
-
 export interface APIProjectApproval {
 	data: {
 		id: number;
@@ -198,35 +171,6 @@ export interface APIProjectComment {
 }
 
 export type APIProjectComments = APIList<APIProjectComment>;
-
-export interface APIProjectScreenshot {
-	data: CreateUpdateDates & {
-		id: number;
-		userId: number;
-		url: APIDownloadURL;
-		name: string;
-		size: Size;
-		tagsCount: number;
-		tags: APIProjectScreenshotTag["data"][];
-	};
-}
-
-export type APIProjectScreenshots = APIList<APIProjectScreenshot>;
-
-export interface APIProjectScreenshotTag {
-	data: {
-		id: number;
-		screenshotId: number;
-		stringId: number;
-		position: Size & {
-			x: number;
-			y: number;
-		};
-		createdAt: string;
-	};
-}
-
-export type APIProjectScreenshotTags = APIList<APIProjectScreenshotTag>;
 
 export type APIProjectLanguageProgress = APILanguageProgress<true, true>;
 export type APIProjectLanguagesProgress = APILanguageProgress;
