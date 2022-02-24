@@ -98,28 +98,6 @@ export interface APIProjectPreTranslation {
 	};
 }
 
-export interface APIProjectTranslationsBuild {
-	data: Omit<Dates, "startedAt"> & {
-		id: number;
-		projectId: number;
-		status: string;
-		progress: number;
-		finishedAt: string;
-		attributes: {
-			branchId: number;
-			directoryId: number;
-			targetLanguagesId: string[];
-			skipUntranslatedStrings: boolean;
-			skipUntranslatedFiles: boolean;
-			exportApprovedOnly: boolean;
-		}[];
-	};
-}
-
-export type APIProjectTranslationsBuilds = APIList<APIProjectTranslationsBuild>;
-
-export type APIProjectTranslationsBuildDownload = APIDownload;
-
 export interface APIPartialProjectString {
 	id: number;
 	text: string;

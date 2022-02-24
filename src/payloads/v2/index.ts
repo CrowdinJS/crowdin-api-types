@@ -15,3 +15,4 @@ export * from "./distribution";
 export * from "./label";
 export * from "./issue";
 export * from "./dictionary";
+export * from "./build";
