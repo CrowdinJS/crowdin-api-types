@@ -22,4 +22,19 @@ export interface APIProjectTranslationsBuild {
 
 export type APIProjectTranslationsBuilds = APIList<APIProjectTranslationsBuild>;
 
+export interface APIProjectTranslationsBuildDirectory {
+	data: Omit<Dates, "startedAt"> & {
+		id: number;
+		projectId: number;
+		status: string;
+		progress: number;
+	};
+}
+
+export interface APIProjectTranslationsBuildFile {
+	data: APIDownload["data"] & {
+		etag: string;
+	};
+}
+
 export type APIProjectTranslationsBuildDownload = APIDownload;

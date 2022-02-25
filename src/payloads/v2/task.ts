@@ -1,5 +1,6 @@
 import type { CreateUpdateDates } from "../common";
 import type { APIProjectUser } from "./user";
+import type { APIDownload } from "./_internal/download";
 import type { APIList } from "./_internal/list";
 
 export interface APIProjectTaskProgress {
@@ -44,6 +45,8 @@ export interface APIProjectTask {
 }
 
 export type APIProjectTasks = APIList<APIProjectTask>;
+
+export type APIProjectTaskExport = APIDownload;
 
 export interface APIUserTask {
 	data: APIProjectTask["data"] & {

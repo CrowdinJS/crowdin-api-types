@@ -139,6 +139,8 @@ export interface APIProjectTranslation {
 
 export type APIProjectTranslations = APIList<APIProjectTranslation>;
 
+export type APIProjectTranslationsExport = APIDownload;
+
 export interface APIProjectVote {
 	data: {
 		id: number;
@@ -197,3 +199,12 @@ export type APIProjectQAIssues = APIList<{
 		text: string;
 	};
 }>;
+
+export interface APIProjectTranslationUpload {
+	data: {
+		projectId: number;
+		storageId: number;
+		languageId: string;
+		fileId: number;
+	};
+}
