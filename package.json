@@ -27,6 +27,7 @@
     "clean": "node scripts/clean-dist.mjs",
     "build": "tsc -b src && run-p \"esm:*\" && rollup -c scripts/rollup.ts",
     "esm:rest": "gen-esm-wrapper ./dist/rest/index.js ./dist/rest/index.mjs",
+    "esm:payloads": "gen-esm-wrapper ./dist/payloads/index.js ./dist/payloads/index.mjs",
 	"esm:versions": "node ./scripts/versions.mjs",
     "sversion": "standard-version",
     "prepare": "husky install",
