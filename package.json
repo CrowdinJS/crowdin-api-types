@@ -9,10 +9,10 @@
     "test": "test"
   },
   "exports": {
-	"./v2": {
-		"require": "./dist/v2.js",
-		"import": "./dist/v2.mjs"
-	}
+    "./v2": {
+      "require": "./dist/v2.js",
+      "import": "./dist/v2.mjs"
+    }
   },
   "files": [
     "dist",
