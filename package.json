@@ -27,7 +27,7 @@
     "clean": "node scripts/clean-dist.mjs",
     "build": "tsc -b src && run-p \"esm:*\" && rollup -c scripts/rollup.ts",
     "esm:rest": "gen-esm-wrapper ./dist/rest/index.js ./dist/rest/index.mjs",
-	"esm:versions": "node ./scripts/versions.mjs",
+    "esm:versions": "node ./scripts/versions.mjs",
     "sversion": "standard-version",
     "prepare": "husky install",
     "pretest": "yarn build",
@@ -53,6 +53,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-angular": "^16.2.1",
+    "@favware/npm-deprecate": "^1.0.4",
     "@favware/rollup-type-bundler": "^1.0.7",
     "@jest/types": "^27.5.1",
     "@sapphire/eslint-config": "^4.2.1",
