@@ -14,7 +14,7 @@
 		}
 	},
 	"files": [
-		"./*.d.ts",
+		"*.d.ts",
 		"dist",
 		"!dist/*.tsbuildinfo"
 	],
