@@ -1,94 +1,95 @@
 {
-  "name": "crowdin-api-types",
-  "version": "1.0.0",
-  "description": "API types for crowdin",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "directories": {
-    "lib": "src",
-    "test": "test"
-  },
-  "exports": {
-    "./v2": {
-      "require": "./dist/v2.js",
-      "import": "./dist/v2.mjs"
-    }
-  },
-  "files": [
-    "dist",
-    "!dist/*.tsbuildinfo"
-  ],
-  "scripts": {
-    "lint": "eslint src tests scripts --ext mjs,ts --fix",
-    "format": "prettier --write {src,tests,scripts}/**/*.ts",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "update": "yarn up \"*\" -i",
-    "clean": "node scripts/clean-dist.mjs",
-    "build": "tsc -b src && run-p \"esm:*\" && rollup -c scripts/rollup.ts",
-    "esm:rest": "gen-esm-wrapper ./dist/rest/index.js ./dist/rest/index.mjs",
-    "esm:payloads": "gen-esm-wrapper ./dist/payloads/index.js ./dist/payloads/index.mjs",
-	"esm:versions": "node ./scripts/versions.mjs",
-    "sversion": "standard-version",
-    "prepare": "husky install",
-    "pretest": "yarn build",
-    "prebuild": "yarn clean",
-    "lint:fix": "eslint --ext mjs,js,ts --fix",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "prepublishOnly": "rollup-type-bundler -v -e url events"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CrowdinJS/crowdin-api-types.git"
-  },
-  "keywords": [
-    "crowdin",
-    "api"
-  ],
-  "author": "Jaron Zijlstra <jaron_zijlstra@outlook.com>",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/CrowdinJS/crowdin-api-types/issues"
-  },
-  "homepage": "https://github.com/CrowdinJS/crowdin-api-types#readme",
-  "devDependencies": {
-    "@commitlint/cli": "^16.2.1",
-    "@commitlint/config-angular": "^16.2.1",
-    "@favware/rollup-type-bundler": "^1.0.7",
-    "@jest/types": "^27.5.1",
-    "@sapphire/eslint-config": "^4.2.1",
-    "@sapphire/ts-config": "^3.3.1",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^17.0.19",
-    "@typescript-eslint/eslint-plugin": "^5.12.1",
-    "@typescript-eslint/parser": "^5.12.1",
-    "conventional-changelog-cli": "^2.2.2",
-    "eslint": "~8.6.0",
-    "eslint-config-prettier": "^8.4.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "gen-esm-wrapper": "^1.1.3",
-    "husky": "^7.0.4",
-    "jest": "^27.5.1",
-    "jest-circus": "^27.5.1",
-    "lint-staged": "^12.3.4",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.5.1",
-    "pretty-quick": "^3.1.3",
-    "rollup": "^2.68.0",
-    "rollup-plugin-version-injector": "^1.3.3",
-    "standard-version": "^9.3.2",
-    "ts-jest": "^27.1.3",
-    "ts-node": "^10.5.0",
-    "typescript": "^4.5.5"
-  },
-  "dependencies": {
-    "tslib": "^2.3.1"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "engines": {
-    "node": ">=17.5.0",
-    "npm": ">=7.0.0"
-  }
+	"name": "crowdin-api-types",
+	"version": "1.0.0",
+	"description": "API types for crowdin",
+	"directories": {
+		"lib": "src",
+		"test": "test"
+	},
+	"exports": {
+		"./v2": {
+			"require": "./dist/v2.js",
+			"import": "./dist/v2.mjs",
+			"types": "./dist/v2.d.ts"
+		}
+	},
+	"files": [
+		"*.d.ts",
+		"dist",
+		"!dist/*.tsbuildinfo"
+	],
+	"scripts": {
+		"lint": "eslint src test scripts --ext mjs,ts --fix",
+		"format": "prettier --write {src,tests,scripts}/**/*.ts",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"test:lint": "prettier --check {src,tests,scripts}/**/*.ts && eslint --ext mjs,ts src/{payloads,rest}/**/*.ts src/v*.ts scripts/**/*.{mjs,ts}",
+		"update": "yarn up \"*\" -i",
+		"clean": "node scripts/clean-dist.mjs",
+		"build": "tsc -b src && run-p \"esm:*\" && rollup -c scripts/rollup.ts",
+		"esm:rest": "gen-esm-wrapper ./dist/rest/index.js ./dist/rest/index.mjs",
+		"esm:versions": "node ./scripts/versions.mjs",
+		"sversion": "standard-version",
+		"prepare": "husky install",
+		"pretest": "yarn build",
+		"prebuild": "yarn clean",
+		"lint:fix": "eslint --ext mjs,js,ts --fix",
+		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+		"prepublishOnly": "run-s clean test:lint build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/CrowdinJS/crowdin-api-types.git"
+	},
+	"keywords": [
+		"crowdin",
+		"api"
+	],
+	"author": "Jaron Zijlstra <jaron_zijlstra@outlook.com>",
+	"license": "Apache-2.0",
+	"bugs": {
+		"url": "https://github.com/CrowdinJS/crowdin-api-types/issues"
+	},
+	"homepage": "https://github.com/CrowdinJS/crowdin-api-types#readme",
+	"devDependencies": {
+		"@commitlint/cli": "^16.2.1",
+		"@commitlint/config-angular": "^16.2.1",
+		"@favware/npm-deprecate": "^1.0.4",
+		"@favware/rollup-type-bundler": "^1.0.7",
+		"@jest/types": "^27.5.1",
+		"@sapphire/eslint-config": "^4.2.1",
+		"@sapphire/ts-config": "^3.3.1",
+		"@types/jest": "^27.4.1",
+		"@types/node": "^17.0.19",
+		"@typescript-eslint/eslint-plugin": "^5.12.1",
+		"@typescript-eslint/parser": "^5.12.1",
+		"conventional-changelog-cli": "^2.2.2",
+		"eslint": "~8.6.0",
+		"eslint-config-prettier": "^8.4.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"gen-esm-wrapper": "^1.1.3",
+		"husky": "^7.0.4",
+		"jest": "^27.5.1",
+		"jest-circus": "^27.5.1",
+		"lint-staged": "^12.3.4",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.5.1",
+		"pretty-quick": "^3.1.3",
+		"rollup": "^2.68.0",
+		"rollup-plugin-version-injector": "^1.3.3",
+		"standard-version": "^9.3.2",
+		"ts-jest": "^27.1.3",
+		"ts-node": "^10.5.0",
+		"typescript": "^4.5.5"
+	},
+	"dependencies": {
+		"tslib": "^2.3.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=17.5.0",
+		"npm": ">=7.0.0"
+	}
 }
