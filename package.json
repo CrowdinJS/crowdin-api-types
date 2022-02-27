@@ -9,10 +9,12 @@
 	"exports": {
 		"./v2": {
 			"require": "./dist/v2.js",
-			"import": "./dist/v2.mjs"
+			"import": "./dist/v2.mjs",
+			"types": "./dist/v2.d.ts"
 		}
 	},
 	"files": [
+		"./*.d.ts",
 		"dist",
 		"!dist/*.tsbuildinfo"
 	],
