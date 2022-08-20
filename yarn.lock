@@ -14,7 +14,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.16.0, @babel/code-frame@npm:^7.16.7":
+"@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/code-frame@npm:7.16.7"
   dependencies:
@@ -647,21 +647,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@favware/rollup-type-bundler@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "@favware/rollup-type-bundler@npm:1.0.7"
+"@favware/rollup-type-bundler@npm:1.0.11":
+  version: 1.0.11
+  resolution: "@favware/rollup-type-bundler@npm:1.0.11"
   dependencies:
-    "@sapphire/utilities": ^3.1.0
-    colorette: ^2.0.16
-    commander: ^8.3.0
+    "@sapphire/utilities": ^3.9.2
+    colorette: ^2.0.19
+    commander: ^9.4.0
     js-yaml: ^4.1.0
-    rollup: ^2.63.0
-    rollup-plugin-dts: ^4.1.0
-    typescript: ^4.5.4
+    rollup: ^2.78.1
+    rollup-plugin-dts: ^4.2.2
+    typescript: ^4.7.4
   bin:
-    rollup-type-bundler: dist/cli.js
-    rtb: dist/cli.js
-  checksum: e42a8c5b4509b78219b477acdd36baedfb97e48265796e3418baba085d0f9e65ce7ccab59c011a4eb320bcf778dfda8ff2a257910044846b02c2ca00baee73ec
+    rollup-type-bundler: ./dist/cli.js
+    rtb: ./dist/cli.js
+  checksum: f2f6b42d2cd5a67d1e9aabb25cfe925a00e922a2b17c0c0ae9b2f0bd574bbb2073e8e8824bbd5072fdf3a8f91c3eb6fbe2d582014222fd2ddeffbfa9950bf1fd
   languageName: node
   linkType: hard
 
@@ -1023,10 +1023,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/utilities@npm:^3.0.1, @sapphire/utilities@npm:^3.1.0":
+"@sapphire/utilities@npm:^3.0.1":
   version: 3.3.0
   resolution: "@sapphire/utilities@npm:3.3.0"
   checksum: 0bbc527239d396ae7f5f76601190cc54c46b1f9483038ec5f37c4fac6a7d70428a2ce032df0fbfb22d036d31b4352c5b647786a8436b060ddeed77897baa4df9
+  languageName: node
+  linkType: hard
+
+"@sapphire/utilities@npm:^3.9.2":
+  version: 3.9.2
+  resolution: "@sapphire/utilities@npm:3.9.2"
+  checksum: eeef33b03b802e931ada752b8c335cc8bde4017f8029b577b0247e3f3d2b57bf5f1936b2c8c29aef5e2c6975d9b162363e4c5c434c4fead0bba74253d067b4d9
   languageName: node
   linkType: hard
 
@@ -2054,6 +2061,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"colorette@npm:^2.0.19":
+  version: 2.0.19
+  resolution: "colorette@npm:2.0.19"
+  checksum: 888cf5493f781e5fcf54ce4d49e9d7d698f96ea2b2ef67906834bb319a392c667f9ec69f4a10e268d2946d13a9503d2d19b3abaaaf174e3451bfe91fb9d82427
+  languageName: node
+  linkType: hard
+
 "combined-stream@npm:^1.0.8":
   version: 1.0.8
   resolution: "combined-stream@npm:1.0.8"
@@ -2067,6 +2081,13 @@ __metadata:
   version: 8.3.0
   resolution: "commander@npm:8.3.0"
   checksum: 0f82321821fc27b83bd409510bb9deeebcfa799ff0bf5d102128b500b7af22872c0c92cb6a0ebc5a4cf19c6b550fba9cedfa7329d18c6442a625f851377bacf0
+  languageName: node
+  linkType: hard
+
+"commander@npm:^9.4.0":
+  version: 9.4.0
+  resolution: "commander@npm:9.4.0"
+  checksum: a322de584a6ccd1ea83c24f6a660e52d16ffbe2613fcfbb8d2cc68bc9dec637492456d754fe8bb5b039ad843ed8e04fb0b107e581a75f62cde9e1a0ab1546e09
   languageName: node
   linkType: hard
 
@@ -2444,7 +2465,7 @@ __metadata:
     "@commitlint/cli": ^16.2.1
     "@commitlint/config-angular": ^16.2.1
     "@favware/npm-deprecate": ^1.0.4
-    "@favware/rollup-type-bundler": ^1.0.7
+    "@favware/rollup-type-bundler": 1.0.11
     "@jest/types": ^27.5.1
     "@sapphire/eslint-config": ^4.2.1
     "@sapphire/ts-config": ^3.3.1
@@ -4990,12 +5011,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.25.7":
-  version: 0.25.7
-  resolution: "magic-string@npm:0.25.7"
+"magic-string@npm:^0.26.1":
+  version: 0.26.2
+  resolution: "magic-string@npm:0.26.2"
   dependencies:
-    sourcemap-codec: ^1.4.4
-  checksum: 727a1fb70f9610304fe384f1df0251eb7d1d9dd779c07ef1225690361b71b216f26f5d934bfb11c919b5b0e7ba50f6240c823a6f2e44cfd33d4a07d7747ca829
+    sourcemap-codec: ^1.4.8
+  checksum: b4db4e2b370ac8d9ffc6443a2b591b75364bf1fc9121b5a4068d5b89804abff6709d1fa4a0e0c2d54f2e61e0e44db83efdfe219a5ab0ba6d25ee1f2b51fbed55
   languageName: node
   linkType: hard
 
@@ -6167,19 +6188,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-dts@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "rollup-plugin-dts@npm:4.1.0"
+"rollup-plugin-dts@npm:^4.2.2":
+  version: 4.2.2
+  resolution: "rollup-plugin-dts@npm:4.2.2"
   dependencies:
-    "@babel/code-frame": ^7.16.0
-    magic-string: ^0.25.7
+    "@babel/code-frame": ^7.16.7
+    magic-string: ^0.26.1
   peerDependencies:
     rollup: ^2.55
-    typescript: ~4.1 || ~4.2 || ~4.3 || ~4.4 || ~4.5
+    typescript: ^4.1
   dependenciesMeta:
     "@babel/code-frame":
       optional: true
-  checksum: add2715d4906dccb8bbad63e02668303eee553b68e2ae8c7c686abc5ea7936ef316db43845eb12bf978002f461e43b00ecfe61bd2ffedd6c570e12a289de7c18
+  checksum: cf4b45f6cca442a5f44af0f0fb567c8fc540ecb792c763571d1bcda9bf495803bcc8d4eaef451a2dd32f7f391eb822e2b96cc6b86b096db54a4d3935236fd8da
   languageName: node
   linkType: hard
 
@@ -6194,7 +6215,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.63.0, rollup@npm:^2.68.0":
+"rollup@npm:^2.68.0":
   version: 2.68.0
   resolution: "rollup@npm:2.68.0"
   dependencies:
@@ -6205,6 +6226,20 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: c883f6fb2e10e1c79a32527da0c50ef47a7beb8ddacfdae4197ff2d1911fb8d10bb2704496cf878d3048fbf3524d613bc87f25c5be0afc667fe30b7d04fa8092
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.78.1":
+  version: 2.78.1
+  resolution: "rollup@npm:2.78.1"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 9034814383ca5bdb4bea6d499270aeb31cdb0bb884f81b0c6a1d19c63cc973f040e6ee09b7af8a7169dd231c090f4b44ef8b99c4bfdf884aceeb3dcefb8cfa14
   languageName: node
   linkType: hard
 
@@ -6454,7 +6489,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sourcemap-codec@npm:^1.4.4":
+"sourcemap-codec@npm:^1.4.8":
   version: 1.4.8
   resolution: "sourcemap-codec@npm:1.4.8"
   checksum: b57981c05611afef31605732b598ccf65124a9fcb03b833532659ac4d29ac0f7bfacbc0d6c5a28a03e84c7510e7e556d758d0bb57786e214660016fb94279316
@@ -7099,7 +7134,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.4.3, typescript@npm:^4.5.4, typescript@npm:^4.5.5":
+"typescript@npm:^4.4.3, typescript@npm:^4.5.5":
   version: 4.5.5
   resolution: "typescript@npm:4.5.5"
   bin:
@@ -7109,13 +7144,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.5.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.5.5#~builtin<compat/typescript>":
+"typescript@npm:^4.7.4":
+  version: 4.7.4
+  resolution: "typescript@npm:4.7.4"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 5750181b1cd7e6482c4195825547e70f944114fb47e58e4aa7553e62f11b3f3173766aef9c281783edfd881f7b8299cf35e3ca8caebe73d8464528c907a164df
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.5.5#~builtin<compat/typescript>":
   version: 4.5.5
   resolution: "typescript@patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=bda367"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 858c61fa63f7274ca4aaaffeced854d550bf416cff6e558c4884041b3311fb662f476f167cf5c9f8680c607239797e26a2ee0bcc6467fbc05bfcb218e1c6c671
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.7.4#~builtin<compat/typescript>":
+  version: 4.7.4
+  resolution: "typescript@patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=bda367"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 96d3030cb01143570567cb4f3a616b10df65f658f0e74e853e77a089a6a954e35c800be7db8b9bfe9a1ae05d9c2897e281359f65e4caa1caf266368e1c4febd3
   languageName: node
   linkType: hard
 
